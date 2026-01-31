@@ -1,0 +1,23 @@
+﻿version: '3.8'
+
+services:
+  ml-prediction:
+    image: crypto-ml-engine  # Docker просто візьме вже зібраний образ
+    container_name: ml_prediction
+    ports:
+      - "8000:8000"
+    networks:
+      - crypto-network
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: crypto_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - crypto-network
+    restart: always
+
+networks:
+  crypto-network:
+    driver: bridge

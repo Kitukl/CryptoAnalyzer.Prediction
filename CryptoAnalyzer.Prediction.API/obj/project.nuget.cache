@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "dgSpecHash": "01dvlYcx/Yo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kitol\\RiderProjects\\CryptoAnalyzer.Prediction\\CryptoAnalyzer.Prediction.API\\CryptoAnalyzer.Prediction.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kitol\\.nuget\\packages\\mediatr\\14.0.0\\mediatr.14.0.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.2\\microsoft.extensions.caching.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\10.0.2\\microsoft.extensions.caching.stackexchangeredis.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.2\\microsoft.extensions.dependencyinjection.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.2\\microsoft.extensions.logging.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.extensions.options\\10.0.2\\microsoft.extensions.options.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.2\\microsoft.extensions.primitives.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.14.0\\microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.14.0\\microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.identitymodel.logging\\8.14.0\\microsoft.identitymodel.logging.8.14.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.14.0\\microsoft.identitymodel.tokens.8.14.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\microsoft.openapi\\2.3.0\\microsoft.openapi.2.3.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\stackexchange.redis\\2.10.1\\stackexchange.redis.2.10.1.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.1.0\\swashbuckle.aspnetcore.swagger.10.1.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.0\\swashbuckle.aspnetcore.swaggergen.10.1.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\10.1.0\\swashbuckle.aspnetcore.swaggerui.10.1.0.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.2\\system.diagnostics.diagnosticsource.10.0.2.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\system.io.hashing\\9.0.10\\system.io.hashing.9.0.10.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\kitol\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 14.0.0 was resolved.",
+      "projectPath": "C:\\Users\\kitol\\RiderProjects\\CryptoAnalyzer.Prediction\\CryptoAnalyzer.Prediction.API\\CryptoAnalyzer.Prediction.API.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\kitol\\RiderProjects\\CryptoAnalyzer.Prediction\\CryptoAnalyzer.Prediction.API\\CryptoAnalyzer.Prediction.API.csproj",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

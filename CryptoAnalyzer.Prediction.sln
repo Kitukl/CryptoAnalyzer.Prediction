@@ -1,12 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction", "CryptoAnalyzer.Prediction\CryptoAnalyzer.Prediction.csproj", "{45954D56-5829-4910-9DB9-CC34B6461A53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction.API", "CryptoAnalyzer.Prediction.API\CryptoAnalyzer.Prediction.API.csproj", "{45954D56-5829-4910-9DB9-CC34B6461A53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction.Core", "CryptoAnalyzer.Prediction.Core\CryptoAnalyzer.Prediction.Core.csproj", "{050DB8D0-243E-4F03-876F-D0F5821496FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction.BLL", "CryptoAnalyzer.Prediction.BLL\CryptoAnalyzer.Prediction.BLL.csproj", "{050DB8D0-243E-4F03-876F-D0F5821496FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction.Domain", "CryptoAnalyzer.Prediction.Domain\CryptoAnalyzer.Prediction.Domain.csproj", "{EB9699DD-1430-417B-9623-844C849ECE22}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction.Infrastructure", "CryptoAnalyzer.Prediction.Infrastructure\CryptoAnalyzer.Prediction.Infrastructure.csproj", "{F5FEBDAD-31A9-4FE2-AB2D-3901C5762AC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAnalyzer.Prediction.DAL", "CryptoAnalyzer.Prediction.DAL\CryptoAnalyzer.Prediction.DAL.csproj", "{EB9699DD-1430-417B-9623-844C849ECE22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +24,5 @@ Global
 		{EB9699DD-1430-417B-9623-844C849ECE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB9699DD-1430-417B-9623-844C849ECE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB9699DD-1430-417B-9623-844C849ECE22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5FEBDAD-31A9-4FE2-AB2D-3901C5762AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5FEBDAD-31A9-4FE2-AB2D-3901C5762AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5FEBDAD-31A9-4FE2-AB2D-3901C5762AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5FEBDAD-31A9-4FE2-AB2D-3901C5762AC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
