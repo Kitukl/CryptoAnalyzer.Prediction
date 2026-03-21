@@ -1,4 +1,9 @@
 using CryptoAnalyzer.Prediction.Core.Queries;
+using CryptoAnalyzer.Prediction.Extensions;
+using dotenv.net;
+using Microsoft.Extensions.Options;
+
+DotEnv.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +28,9 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
     options.InstanceName = "CryptoAnalyzer_";
 });
+
+builder.Services.Configure<JWTOptions>(builder.Configuration.GetSection("JwtOptions"));
+builder.Services.AddJwtAuthentication(builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JWTOptions>>());
 
 var app = builder.Build();
 
