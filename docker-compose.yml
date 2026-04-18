@@ -2,7 +2,7 @@
 
 services:
   ml-prediction:
-    image: crypto-ml-engine  # Docker просто візьме вже зібраний образ
+    image: crypto-ml-engine
     container_name: ml_prediction
     ports:
       - "8000:8000"

@@ -1,6 +1,9 @@
 using CryptoAnalyzer.Prediction.Core.Queries;
+using CryptoAnalyzer.Prediction.Domain;
+using CryptoAnalyzer.Prediction.Domain.Repositories;
 using CryptoAnalyzer.Prediction.Extensions;
 using dotenv.net;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 DotEnv.Load();
@@ -9,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<INewsRepository, NewsRepository>();
 
 builder.Services.AddControllers();
 
@@ -22,6 +26,11 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     policy.AllowAnyHeader();
     policy.AllowCredentials();
 }));
+
+builder.Services.AddDbContext<PredictionDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {

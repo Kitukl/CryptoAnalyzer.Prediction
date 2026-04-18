@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using CryptoAnalyzer.Prediction.Core.DTOs;
 using CryptoAnalyzer.Prediction.Domain.Entities;
+using CryptoAnalyzer.Prediction.Domain.Repositories;
 using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
 
@@ -18,11 +19,13 @@ public class GetForecastForOneDayQueryHandler : IRequestHandler<GetForecastForOn
 {
     private readonly IDistributedCache _cache;
     private readonly HttpClient _httpClient;
+    private readonly INewsRepository _newsRepository;
 
-    public GetForecastForOneDayQueryHandler(IDistributedCache cache, HttpClient httpClient)
+    public GetForecastForOneDayQueryHandler(IDistributedCache cache, HttpClient httpClient, INewsRepository newsRepository)
     {
         _cache = cache;
         _httpClient = httpClient;
+        _newsRepository = newsRepository;
         _httpClient.DefaultRequestHeaders.Add("User-Agent", "CryptoAnalyzer");
     }
     public async Task<PredictionForOneDayResponse> Handle(GetForecastForOneDayQuery request, CancellationToken cancellationToken)
@@ -57,6 +60,11 @@ public class GetForecastForOneDayQueryHandler : IRequestHandler<GetForecastForOn
             Price = c[1]!.GetValue<decimal>()
         }).ToList();
 
+        var news = await _newsRepository.GetNewsAsync(1);
+        var sentiment = news
+            .OrderByDescending(c => c.Date) 
+            .Select(c => c.Grade)           
+            .FirstOrDefault();   
         var predictionRequest = new PredictiopnForOneDayRequest
         {
             CoinId = request.CoinId,
@@ -64,7 +72,7 @@ public class GetForecastForOneDayQueryHandler : IRequestHandler<GetForecastForOn
             {
                 Date = p.Date.Date,
                 Price = p.Price,
-                Sentiment = 0
+                Sentiment = sentiment
             }),
             DaysToPredict = request.Days
         };
