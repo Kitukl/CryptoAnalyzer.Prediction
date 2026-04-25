@@ -16,6 +16,6 @@ public class NewsRepository : INewsRepository
     {
         var news = await _context.News.ToListAsync();
 
-        return news.Where(c => c.Date.AddDays(days) >= DateTime.UtcNow);
+        return news.Where(c => c.Date.AddDays(days) >= DateTime.UtcNow && c.Grade != null);
     }
 }

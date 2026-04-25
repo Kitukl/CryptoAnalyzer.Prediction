@@ -30,7 +30,7 @@ public class GetForecastForOneDayQueryHandler : IRequestHandler<GetForecastForOn
     }
     public async Task<PredictionForOneDayResponse> Handle(GetForecastForOneDayQuery request, CancellationToken cancellationToken)
     {
-        var key = $"prediction:{request.CoinId}";
+        var key = $"prediction:{request.CoinId}:{request.Days}";
 
         var cachedData = await _cache.GetStringAsync(key, cancellationToken);
 
