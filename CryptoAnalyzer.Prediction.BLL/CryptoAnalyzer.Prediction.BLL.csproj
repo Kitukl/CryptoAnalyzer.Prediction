@@ -14,10 +14,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Commands\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\CryptoAnalyzer.Prediction.DAL\CryptoAnalyzer.Prediction.DAL.csproj" />
     </ItemGroup>
 

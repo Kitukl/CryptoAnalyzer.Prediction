@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CryptoAnalyzer.Prediction.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bff7ff3b952b7209968207eccddb63911e48c99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88c664f4583ca7b593d7d69c79d2dd6553f9c46b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CryptoAnalyzer.Prediction.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CryptoAnalyzer.Prediction.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

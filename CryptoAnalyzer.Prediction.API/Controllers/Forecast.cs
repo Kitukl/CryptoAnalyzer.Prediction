@@ -1,4 +1,5 @@
-﻿using CryptoAnalyzer.Prediction.Core.DTOs;
+﻿using System.Security.Claims;
+using CryptoAnalyzer.Prediction.Core.DTOs;
 using CryptoAnalyzer.Prediction.Core.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -41,10 +42,12 @@ public class Forecast : ControllerBase
     {
         try
         {
-            var query = new GetForecastForNDaysQuery()
+            var userEmail = User.FindFirst(ClaimTypes.Email)?.Value ?? "kitoleg167@gmail.com";
+            var query = new GetForecastForNDaysQuery
             {
                 CoinId = id,
                 DaysToPredict = daysToPredict,
+                UserEmail = userEmail,
                 HistoryDays = historyDays
             };
 

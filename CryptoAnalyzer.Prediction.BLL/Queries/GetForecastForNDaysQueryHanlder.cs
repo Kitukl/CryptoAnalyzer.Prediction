@@ -11,6 +11,7 @@ namespace CryptoAnalyzer.Prediction.Core.Queries;
 
 public sealed class GetForecastForNDaysQuery : IRequest<PredictionForNDaysResponse>
 {
+    public string UserEmail { get; set; }
     public string CoinId { get; set; }
     public int DaysToPredict { get; set; }
     public int HistoryDays { get; set; }
@@ -21,12 +22,14 @@ public class GetForecastForNDaysQueryHanlder : IRequestHandler<GetForecastForNDa
     private readonly IDistributedCache _cache;
     private readonly HttpClient _httpClient;
     private readonly INewsRepository _newsRepository;
+    private readonly IPredictionHistoryRepository _historyRepository;
 
-    public GetForecastForNDaysQueryHanlder(IDistributedCache cache, HttpClient httpClient, INewsRepository newsRepository)
+    public GetForecastForNDaysQueryHanlder(IDistributedCache cache, HttpClient httpClient, INewsRepository newsRepository, IPredictionHistoryRepository historyRepository)
     {
         _cache = cache;
         _httpClient = httpClient;
         _newsRepository = newsRepository;
+        _historyRepository = historyRepository;
         _httpClient.DefaultRequestHeaders.Add("User-Agent", "CryptoAnalyzer");
     }
 
@@ -88,7 +91,7 @@ public class GetForecastForNDaysQueryHanlder : IRequestHandler<GetForecastForNDa
 
         if (!response.IsSuccessStatusCode) throw new Exception("ML Prediction service error");
 
-        var predictedData = await response.Content.ReadFromJsonAsync<IEnumerable<PricePoint>>();
+        var predictedData = await response.Content.ReadFromJsonAsync<IEnumerable<PricePoint>>() ?? Enumerable.Empty<PricePoint>();
         
         var coin = new Coin
         {
@@ -97,7 +100,15 @@ public class GetForecastForNDaysQueryHanlder : IRequestHandler<GetForecastForNDa
             PredictedData = predictedData,
             UpdatedAt = DateTime.UtcNow
         };
-
+        
+        await _historyRepository.CreatePredictionForUser(new PredictionHistory
+        {
+            Id = Guid.NewGuid(),
+            CoinId = request.CoinId,
+            PricePoints = predictedData,
+            UserEmail = request.UserEmail,
+            CreatedAt = DateTime.UtcNow
+        });
         await _cache.SetStringAsync(key, JsonSerializer.Serialize(coin));
 
         return new PredictionForNDaysResponse
